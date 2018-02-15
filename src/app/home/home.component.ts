@@ -1,0 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+import { OffersServices } from '../offers.service'
+
+@Component({
+  selector: 'pu-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  providers: [OffersServices]
+})
+export class HomeComponent implements OnInit {
+
+  constructor(private offersServices: OffersServices) { }
+
+  ngOnInit() {
+    console.log( this.offersServices.getOffers())
+  }
+}
