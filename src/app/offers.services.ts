@@ -1,7 +1,22 @@
+import { Http } from '@angular/http'
+import { Injectable } from '@angular/core'
 import { OfferModel } from './shared/offer.model'
+import 'rxjs/add/operator/toPromise'
 
+@Injectable()
 export class OffersServices {
 
+    constructor(private http: Http) { }
+
+    //Efetuar uma requisição Http e retornar uma promise do tipo OfferModel
+    public getOffers(): Promise<Array<OfferModel>> {
+        return this.http.get('http://localhost:3000/ofertas')
+        .toPromise()
+        .then((answer: any) => answer.json())
+    }
+
+    //region Offers Estaticas
+    /*
     public offers: Array<OfferModel> = [
         {
             id: 1,
@@ -52,20 +67,18 @@ export class OffersServices {
             ]
         }
     ]
+    */
+    //endregion Offers Estaticas
 
-    constructor() { }
-
-    public getOffers(): Array<any> {
-        return this.offers
-    }
-
+    //region Promise
+    /*
     public getOffersPromise(): Promise<Array<OfferModel>> {
         return new Promise((resolve, reject) => {
             let action: boolean = true
             if (action) //Simular um metodo assincrono
                 setTimeout(() => resolve(this.offers), 3000)
             else
-                reject({code: 404, message: 'Servidor não encontrado'})
+                reject({ code: 404, message: 'Servidor não encontrado' })
         }).then((offers: Array<OfferModel>) => {//Encadeando then. Esses metodos funcionam de forma SINCRONA
             console.log("Primeiro then encadeado")
             return offers
@@ -80,4 +93,6 @@ export class OffersServices {
             return offers
         })//.then ...
     }
+    */
+    //endregion Promise
 }
