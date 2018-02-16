@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OffersServices } from '../offers.service'
+import { OffersServices } from '../offers.services'
 import { OfferModel } from '../shared/offer.model'
 
 @Component({
@@ -15,7 +15,18 @@ export class HomeComponent implements OnInit {
   constructor(private offersServices: OffersServices) { }
 
   ngOnInit() {
-    this.offers = this.offersServices.getOffers()
-    console.log( this.offersServices.getOffers())
+    //this.offers = this.offersServices.getOffers()
+    this.offersServices.getOffersPromise().then((offers: Array<OfferModel>) => {
+      this.offers = offers
+      console.log(this.offers)
+    }).catch((param: any) => { //Com catch fica mais simples a compreensão
+      console.log(param)
+    })
+    //Pode ser assim:
+    /*(offers: Array<OfferModel>) => {
+      this.offers = offers
+    },
+    (param: any) => { console.log(param) }*/
+    console.log(this.offers)
   }
 }

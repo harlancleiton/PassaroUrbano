@@ -58,4 +58,26 @@ export class OffersServices {
     public getOffers(): Array<any> {
         return this.offers;
     }
+
+    public getOffersPromise(): Promise<Array<OfferModel>> {
+        return new Promise((resolve, reject) => {
+            let action: boolean = true
+            if (action) //Simular um metodo assincrono
+                setTimeout(() => resolve(this.offers), 3000)
+            else
+                reject({code: 404, message: 'Servidor não encontrado'})
+        }).then((offers: Array<OfferModel>) => {//Encadeando then. Esses metodos funcionam de forma SINCRONA
+            console.log("Primeiro then encadeado")
+            return offers
+        }).then((offers: Array<OfferModel>) => {//Encadeando then. Esses metodos funcionam de forma SINCRONA
+            console.log("Segundo then encadeado")
+            return new Promise((success, failure) => {//Nova promise
+                console.log("Segundo then encadeado - Promise")
+                setTimeout(() => { success(offers) }, 3000)
+            })
+        }).then((offers: Array<OfferModel>) => {//Encadeando then. Esses metodos funcionam de forma SINCRONA
+            console.log("Terceiro then encadeado")
+            return offers
+        })//.then ...
+    }
 }
