@@ -56,7 +56,7 @@ export class OffersServices {
     constructor() { }
 
     public getOffers(): Array<any> {
-        return this.offers;
+        return this.offers
     }
 
     public getOffersPromise(): Promise<Array<OfferModel>> {
