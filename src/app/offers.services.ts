@@ -2,6 +2,7 @@ import { Http } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { OfferModel } from './shared/offer.model'
 import 'rxjs/add/operator/toPromise'
+import { URL_API } from './app.api'
 
 @Injectable()
 export class OffersServices {
@@ -10,9 +11,33 @@ export class OffersServices {
 
     //Efetuar uma requisição Http e retornar uma promise do tipo OfferModel
     public getOffers(): Promise<Array<OfferModel>> {
-        return this.http.get('http://localhost:3000/ofertas')
+        return this.http.get(`${URL_API}/offers`)
+            .toPromise()
+            .then((answer: any) => answer.json())
+    }
+
+    public getOffersByCategory(category: string): Promise<Array<OfferModel>> {
+        return this.http.get(`${URL_API}/offers?category=${category}`)
+            .toPromise()
+            .then((answer: any) => answer.json())
+    }
+
+    public getOffersById(id: number): Promise<OfferModel> {
+        return this.http.get(`${URL_API}/offers?id=${id}`)
+            .toPromise()
+            .then((answer: any) => answer.json().shift())
+    }
+
+    public getHowUseById(id: number): Promise<string> {
+        return this.http.get(`${URL_API}/how-use?id=${id}`)
         .toPromise()
-        .then((answer: any) => answer.json())
+        .then((answer: any) => answer.json().shift().description)
+    }
+
+    public getWhereIsById(id: number): Promise<string> {
+        return this.http.get(`${URL_API}/where-is?id=${id}`)
+        .toPromise()
+        .then((answer: any) => answer.json().shift().description)
     }
 
     //region Offers Estaticas

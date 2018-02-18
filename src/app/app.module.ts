@@ -8,7 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { DiversionComponent } from './diversion/diversion.component';
-import { ROUTES } from './app.routes'
+import { ROUTES } from './app.routes';
+import { OfferComponent } from './offer/offer.component';
+import { HowUseComponent } from './offer/how-use/how-use.component';
+import { WhereIsComponent } from './offer/where-is/where-is.component'
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { ROUTES } from './app.routes'
     HomeComponent,
     FooterComponent,
     RestaurantsComponent,
-    DiversionComponent
+    DiversionComponent,
+    OfferComponent,
+    HowUseComponent,
+    WhereIsComponent
   ],
   imports: [
     BrowserModule,
