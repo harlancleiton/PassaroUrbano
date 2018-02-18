@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/harlancleiton/PassaroUrbano.svg?branch=master)](https://travis-ci.org/harlancleiton/PassaroUrbano)
+
 # PassaroUrbano
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
