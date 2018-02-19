@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/retry'
 import { URL_API } from './app.api'
-import { Observable } from 'rxjs/observable'
+import { Observable } from 'rxjs/Observable'
 //endregion Imports
 
 @Injectable()
