@@ -1,9 +1,18 @@
 <div class="fixed-top">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a href="#" class="navbar-brand">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <div class="col-md-2">
+      <a class="navbar-brand" routerLink="">
         <img src="/assets/logo.png" />
       </a>
+    </div>
+    <div class="col-md-8">
+      <input type="search" class="form-control form-control-sm" placeholder="Pesquise por ofertas..." #searchText (keyup)="search(searchText.value)"
+      />
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let offer of offersModel" [routerLink]="['offer',offer.id]">{{ offer.title }}</li>
+      </ul>
+    </div>
+    <div class="col-md-1">
       <a a href="#">
         <img src="/assets/carrinho.png" />
       </a>

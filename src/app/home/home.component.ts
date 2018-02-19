@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     //this.offers = this.offersServices.getOffers()
     this.offersServices.getOffers().then((offers: Array<OfferModel>) => {
       this.offers = offers
-      console.log(this.offers)
+      //console.log(this.offers)
     }).catch((param: any) => { //Com catch fica mais simples a compreensão
       console.log(param)
     })
@@ -27,6 +27,5 @@ export class HomeComponent implements OnInit {
       this.offers = offers
     },
     (param: any) => { console.log(param) }*/
-    console.log(this.offers)
   }
 }
