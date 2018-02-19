@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { OffersServices } from '../offers.services'
 import { OfferModel } from '../shared/offer.model'
 import { Observable } from 'rxjs/Observable'
@@ -35,14 +35,23 @@ export class OfferComponent implements OnInit, OnDestroy {
       () => console.log('Sucesso')
     )*/
 
-    
+
     /*let time = Observable.interval(3000)
     this.timeSubscription = time.subscribe((interval: number) => console.log(interval))*/
+    //Snapshot tira uma foto da rota, não fica assistindo alterações na rota ativa
+    /*
     this.offersServices.getOffersById(this.activatedRoute.snapshot.params['id'])
       .then((offerModel: OfferModel) => {
         this.offerModel = offerModel
       })
-      
+      */
+    //Para corrigir:
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.offersServices.getOffersById(params.id)
+        .then((offerModel: OfferModel) => {
+          this.offerModel = offerModel
+        })
+    })
     /*
   //Subscribe fica assistindo alterações na rota (Observable)
   this.activatedRoute.params.subscribe(

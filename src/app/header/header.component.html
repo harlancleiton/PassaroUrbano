@@ -9,7 +9,16 @@
       <input type="search" class="form-control form-control-sm" placeholder="Pesquise por ofertas..." #searchText (keyup)="search(searchText.value)"
       />
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let offer of offersModel" [routerLink]="['offer',offer.id]">{{ offer.title }}</li>
+        <li class="list-group-item" *ngFor="let offer of offersObservable | async">
+          <a [routerLink]="['offer',offer.id]" (click)="clearSearch()">
+            <h4>
+              <small>{{ offer.title }}</small>
+            </h4>
+            <h6 class="text-muted">
+              <small>{{ offer.description | reducedDescription }}</small>
+            </h6>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="col-md-1">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { OffersServices } from '../../offers.services'
 
 @Component({
@@ -13,11 +13,14 @@ export class WhereIsComponent implements OnInit {
 
   public whereIs: string
 
-  constructor(private activatedroute: ActivatedRoute, private offersServices: OffersServices) { }
+  constructor(private activatedRoute: ActivatedRoute, private offersServices: OffersServices) { }
 
   ngOnInit() {
-    this.offersServices.getWhereIsById(this.activatedroute.parent.snapshot.params['id'])
-      .then((whereIs: string) => this.whereIs = whereIs)
+    this.activatedRoute.parent.params.subscribe((params: Params) => {
+      this.offersServices.getWhereIsById(params.id)
+        .then((whereIs: string) => {
+          this.whereIs = whereIs
+        })
+    })
   }
-
 }
