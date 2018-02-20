@@ -16,7 +16,7 @@ import '../util/rxjs-extensions'
 
 export class HeaderComponent implements OnInit {
 
-  private offersObservable: Observable<Array<OfferModel>>
+  public offersObservable: Observable<Array<OfferModel>>
   private subjectSearch: Subject<string> = new Subject<string>() //Observador e observado
 
   constructor(private offersServices: OffersServices) { }
