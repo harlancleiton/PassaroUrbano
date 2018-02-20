@@ -4,7 +4,11 @@ import { OffersServices } from '../offers.services';
 import { OfferModel } from '../shared/offer.model'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
-import '../util/rxjs-extensions'
+import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/distinctUntilChanged'
+import 'rxjs/add/operator/catch'
+import 'rxjs/add/observable/of'
 //endregion Imports
 
 @Component({
