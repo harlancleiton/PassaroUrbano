@@ -15,7 +15,8 @@ import { WhereIsComponent } from './offer/where-is/where-is.component'
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
-import { ReducedDescription } from './util/reduced-description.pipe'
+import { ReducedDescription } from './util/reduced-description.pipe';
+import { PurchaseOrderComponent } from './purchase-order/purchase-order.component'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReducedDescription } from './util/reduced-description.pipe'
     OfferComponent,
     HowUseComponent,
     WhereIsComponent,
-    ReducedDescription
+    ReducedDescription,
+    PurchaseOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -5,16 +5,20 @@ import { DiversionComponent } from './diversion/diversion.component'
 import { OfferComponent } from './offer/offer.component'
 import { HowUseComponent } from './offer/how-use/how-use.component'
 import { WhereIsComponent } from './offer/where-is/where-is.component'
+import { PurchaseOrderComponent } from './purchase-order/purchase-order.component'
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'restaurants', component: RestaurantsComponent },
     { path: 'diversion', component: DiversionComponent },
     { path: 'offer', component: OfferComponent },
-    { path: 'offer/:id', component: OfferComponent, 
-    children: [
-        { path: '', component: HowUseComponent },
-        { path: 'how-use', component: HowUseComponent },
-        { path: 'where-is', component: WhereIsComponent },
-    ] }
+    {
+        path: 'offer/:id', component: OfferComponent,
+        children: [
+            { path: '', component: HowUseComponent },
+            { path: 'how-use', component: HowUseComponent },
+            { path: 'where-is', component: WhereIsComponent },
+        ]
+    },
+    { path: 'purchase-order', component: PurchaseOrderComponent }
 ]
