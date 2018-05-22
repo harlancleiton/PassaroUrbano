@@ -67,8 +67,8 @@
       <div class="form-row">
 
         <div class="form-group col-md-6">
-          <input type="text" class="form-control is-invalid" placeholder="Endereço" autocomplete="off" minlength="5" [value]="address"
-            #inputAddress (input)="updateAddress(inputAddress.value)" required>
+          <input type="text" class="form-control {{ addressValidPristine ? '' : (addressValid ? 'is-valid' : 'is-invalid')}}" placeholder="Endereço"
+            autocomplete="off" minlength="5" [value]="address" #inputAddress (input)="updateAddress(inputAddress.value)" required>
           <div class="invalid-feedback">Endereço inválido</div>
         </div>
 
@@ -80,8 +80,8 @@
         </div>
 
         <div class="form-group col-md-4">
-          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off" [value]="complement"
-          #inputComplement (input)="updateComplement(inputComplement.value)">
+          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off" [value]="complement" #inputComplement
+            (input)="updateComplement(inputComplement.value)">
         </div>
 
       </div>

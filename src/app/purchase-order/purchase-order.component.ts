@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseOrderComponent implements OnInit {
 
-  public address: string = 'Rua ABC'
-  public number: number = 0
-  public complement: string = 'Av 00'
-  public payment: string = 'money'
+  public address: string = ''
+  public number: string = ''
+  public complement: string = ''
+  public payment: string = ''
+  public addressValid: boolean
+  public numberValid: boolean
+  public complementValid: boolean
+  public paymentValid: boolean
+  public addressValidPristine: boolean = true
+  public numberValidPristine: boolean = true
+  public complementValidPristine: boolean = true
+  public paymentValidPristine: boolean = true
 
   constructor() { }
 
@@ -19,10 +27,14 @@ export class PurchaseOrderComponent implements OnInit {
 
   public updateAddress(address: string): void {
     this.address = address
-    console.log(this.address)
+    this.addressValidPristine = false
+    if (this.address.length > 5)
+      this.addressValid = true
+    else
+      this.addressValid = false
   }
 
-  public updateNumber(number: number): void {
+  public updateNumber(number: string): void {
     this.number = number
     console.log(this.number)
   }
@@ -32,7 +44,7 @@ export class PurchaseOrderComponent implements OnInit {
     console.log(this.complement)
   }
 
-  public changePayment (payment: string) {
+  public changePayment(payment: string) {
     this.payment = payment
     console.log(this.payment)
   }
