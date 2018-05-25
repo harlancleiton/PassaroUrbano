@@ -30,22 +30,29 @@ export class PurchaseOrderComponent implements OnInit {
     this.addressValidPristine = false
     if (this.address.length > 5)
       this.addressValid = true
-    else
-      this.addressValid = false
+    else this.addressValid = false
   }
 
   public updateNumber(number: string): void {
     this.number = number
-    console.log(this.number)
+    this.numberValidPristine = false
+    if (this.number.length > 0)
+      this.numberValid = true
+    else this.numberValid = false
   }
 
   public updateComplement(complement: string): void {
     this.complement = complement
-    console.log(this.complement)
+    this.complementValidPristine = false
+    if (this.complement.length > 0)
+      this.complementValid = true
   }
 
   public changePayment(payment: string) {
     this.payment = payment
-    console.log(this.payment)
+    this.paymentValidPristine = false
+    if (this.payment == 'money' || this.payment == 'debit')
+      this.paymentValid = true
+    else this.paymentValid = false
   }
 }
