@@ -19,6 +19,7 @@ export class PurchaseOrderComponent implements OnInit {
   public numberValidPristine: boolean = true
   public complementValidPristine: boolean = true
   public paymentValidPristine: boolean = true
+  public buttonState: string = 'disabled'
 
   constructor() { }
 
@@ -31,6 +32,7 @@ export class PurchaseOrderComponent implements OnInit {
     if (this.address.length > 5)
       this.addressValid = true
     else this.addressValid = false
+    this.updateButton()
   }
 
   public updateNumber(number: string): void {
@@ -39,6 +41,7 @@ export class PurchaseOrderComponent implements OnInit {
     if (this.number.length > 0)
       this.numberValid = true
     else this.numberValid = false
+    this.updateButton()
   }
 
   public updateComplement(complement: string): void {
@@ -46,6 +49,7 @@ export class PurchaseOrderComponent implements OnInit {
     this.complementValidPristine = false
     if (this.complement.length > 0)
       this.complementValid = true
+    this.updateButton()
   }
 
   public changePayment(payment: string) {
@@ -54,5 +58,12 @@ export class PurchaseOrderComponent implements OnInit {
     if (this.payment == 'money' || this.payment == 'debit')
       this.paymentValid = true
     else this.paymentValid = false
+    this.updateButton()
+  }
+
+  public updateButton(): void {
+    if (this.addressValid && this.numberValid && this.paymentValid)
+      this.buttonState = ''
+    else this.buttonState = 'disabled'
   }
 }

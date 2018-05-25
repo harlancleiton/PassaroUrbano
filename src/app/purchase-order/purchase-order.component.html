@@ -3,7 +3,6 @@
     <form novalidate>
 
       <h5>Sua Compra</h5>
-      <hr />
 
       <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
@@ -66,13 +65,27 @@
         <div class="form-group col-md-6">
           <input type="text" class="form-control {{ addressValidPristine ? '' : (addressValid ? 'is-valid' : 'is-invalid') }}" placeholder="Endereço"
             autocomplete="off" minlength="5" [value]="address" #inputAddress (input)="updateAddress(inputAddress.value)" required>
-          <div class="invalid-feedback">Endereço inválido</div>
+          <div *ngIf="addressValidPristine == false">
+            <div *ngIf="addressValid; else msgAddressInvalid">
+              <small class="form-text text-success">Endereço válido</small>
+            </div>
+            <ng-template #msgAddressInvalid>
+              <small class="form-text text-danger">Endereço inválido</small>
+            </ng-template>
+          </div>
         </div>
 
         <div class="form-group col-md-2">
           <input type="text" class="form-control {{ numberValidPristine ? '' : (numberValid ? 'is-valid' : 'is-invalid') }}" placeholder="Número"
             autocomplete="off" minlength="1" [value]="number" #inputNumber (input)="updateNumber(inputNumber.value)" required>
-          <small class="form-text text-muted">Ok</small>
+          <div *ngIf="numberValidPristine == false">
+            <div *ngIf="numberValid; else msgNumberInvalid">
+              <small class="form-text text-success">Número válido</small>
+            </div>
+            <ng-template #msgNumberInvalid>
+              <small class="form-text text-danger">Número inválido</small>
+            </ng-template>
+          </div>
         </div>
 
         <div class="form-group col-md-4">
@@ -93,13 +106,19 @@
             <option value="money" selected="{{payment == 'money' ? 'selected' : ''}}">Dinheiro</option>
             <option value="debit" selected="{{payment == 'debit' ? 'selected' : ''}}">Débito</option>
           </select>
-
-          <div class="invalid-feedback">Selecione uma forma de pagamento</div>
+          <div *ngIf="paymentValidPristine == false">
+            <div *ngIf="paymentValid; else msgPaymentInvalid">
+              <small class="form-text text-success">Forma de pagamento válida</small>
+            </div>
+            <ng-template #msgPaymentInvalid>
+              <small class="form-text text-danger">Forma de pagamento inválida</small>
+            </ng-template>
+          </div>
         </div>
       </div>
 
-      <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg" [disabled]="buttonState">Cofirmar compra</button>
+
     </form>
   </div>
 </div>
