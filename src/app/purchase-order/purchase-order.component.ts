@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderService } from '../services/purchase-order.service';
+import { OrderModel } from '../shared/order.model'
 
 @Component({
   selector: 'pu-purchase-order',
@@ -8,6 +9,7 @@ import { PurchaseOrderService } from '../services/purchase-order.service';
 })
 export class PurchaseOrderComponent implements OnInit {
 
+  //region Variables
   public address: string = ''
   public number: string = ''
   public complement: string = ''
@@ -21,6 +23,9 @@ export class PurchaseOrderComponent implements OnInit {
   public complementValidPristine: boolean = true
   public paymentValidPristine: boolean = true
   public buttonState: string = 'disabled'
+  public orderModel: OrderModel
+  public purchaseOrderService: PurchaseOrderService
+  //endregion Variables
 
   constructor() { }
 
@@ -69,6 +74,8 @@ export class PurchaseOrderComponent implements OnInit {
   }
 
   public makePurchase(): void {
-    console.log("Btn clicked!")
+    this.orderModel = new OrderModel(this.address, this.number, this.complement, this.payment)
+    this.purchaseOrderService = new PurchaseOrderService()
+    this.purchaseOrderService.makePurchase(this.orderModel)
   }
 }
