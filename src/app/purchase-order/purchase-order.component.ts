@@ -67,4 +67,8 @@ export class PurchaseOrderComponent implements OnInit {
       this.buttonState = ''
     else this.buttonState = 'disabled'
   }
+
+  public makePurchase(): void {
+    console.log("Btn clicked!")
+  }
 }
