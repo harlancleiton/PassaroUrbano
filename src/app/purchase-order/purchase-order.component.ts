@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PurchaseOrderService } from '../services/purchase-order.service';
 
 @Component({
   selector: 'pu-purchase-order',
