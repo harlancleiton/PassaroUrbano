@@ -5,7 +5,8 @@ import { OrderModel } from '../shared/order.model'
 @Component({
   selector: 'pu-purchase-order',
   templateUrl: './purchase-order.component.html',
-  styleUrls: ['./purchase-order.component.css']
+  styleUrls: ['./purchase-order.component.css'],
+  providers: [PurchaseOrderService]
 })
 export class PurchaseOrderComponent implements OnInit {
 
@@ -24,14 +25,15 @@ export class PurchaseOrderComponent implements OnInit {
   public paymentValidPristine: boolean = true
   public buttonState: string = 'disabled'
   public orderModel: OrderModel
-  public purchaseOrderService: PurchaseOrderService
+  public idOrderModel: number
   //endregion Variables
 
-  constructor() { }
+  constructor(private purchaseOrderService: PurchaseOrderService) { }
 
   ngOnInit() {
   }
 
+  //region UpdateVariables
   public updateAddress(address: string): void {
     this.address = address
     this.addressValidPristine = false
@@ -72,10 +74,12 @@ export class PurchaseOrderComponent implements OnInit {
       this.buttonState = ''
     else this.buttonState = 'disabled'
   }
+  //endregion UpdateVariables
 
   public makePurchase(): void {
     this.orderModel = new OrderModel(this.address, this.number, this.complement, this.payment)
-    this.purchaseOrderService = new PurchaseOrderService()
-    this.purchaseOrderService.makePurchase(this.orderModel)
+    this.purchaseOrderService.makePurchase(this.orderModel).subscribe((idOrderModel: number) =>
+      this.idOrderModel = idOrderModel
+    )
   }
 }

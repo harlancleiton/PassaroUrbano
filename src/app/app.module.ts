@@ -16,7 +16,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 import { ReducedDescription } from './util/reduced-description.pipe';
-import { PurchaseOrderComponent } from './purchase-order/purchase-order.component'
+import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { PurchaseOrderSuccessComponent } from './purchase-order-success/purchase-order-success.component'
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PurchaseOrderComponent } from './purchase-order/purchase-order.componen
     HowUseComponent,
     WhereIsComponent,
     ReducedDescription,
-    PurchaseOrderComponent
+    PurchaseOrderComponent,
+    PurchaseOrderSuccessComponent
   ],
   imports: [
     BrowserModule,
