@@ -12,12 +12,19 @@ import { NgForm } from '@angular/forms';
 export class PurchaseOrderComponent implements OnInit {
 
   @ViewChild('form') public form: NgForm;
+  public idOrder: number
 
   constructor(private purchaseOrderService: PurchaseOrderService) { }
 
   ngOnInit() { }
 
   public makePurchase(): void {
-    console.log(this.form)
+    let orderModel: OrderModel = new OrderModel(this.form.value.address, this.form.value.number,
+      this.form.value.complement, this.form.value.payment)
+    this.purchaseOrderService.makePurchase(orderModel)
+      .subscribe((idOrder: number) => {
+        this.idOrder = idOrder
+        console.log('ID pedido: ' + idOrder)
+      })
   }
 }
