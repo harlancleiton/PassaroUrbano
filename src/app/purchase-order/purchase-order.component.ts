@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderService } from '../services/purchase-order.service';
 import { OrderModel } from '../shared/order.model'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'pu-purchase-order',
@@ -14,4 +15,7 @@ export class PurchaseOrderComponent implements OnInit {
 
   ngOnInit() { }
 
+  public makePurchase(form: NgForm): void {
+    console.log(form)
+  }
 }
