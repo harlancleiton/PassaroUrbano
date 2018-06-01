@@ -374,20 +374,6 @@
       "complement": "ddsda",
       "payment": "money",
       "id": 27
-    },
-    {
-      "address": "sadsad",
-      "number": "1",
-      "complement": "dsad",
-      "payment": "debit",
-      "id": 28
-    },
-    {
-      "address": "sadsadsada",
-      "number": "1",
-      "complement": "sa",
-      "payment": "money",
-      "id": 29
     }
   ]
 }

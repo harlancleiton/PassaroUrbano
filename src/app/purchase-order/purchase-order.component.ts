@@ -1,37 +1,52 @@
+//region Imports
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PurchaseOrderService } from '../services/purchase-order.service';
 import { OrderModel } from '../shared/order.model'
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+//endregion Imports
 
+//region Components
 @Component({
   selector: 'pu-purchase-order',
   templateUrl: './purchase-order.component.html',
   styleUrls: ['./purchase-order.component.css'],
   providers: [PurchaseOrderService]
 })
+//endregion Components
+
 export class PurchaseOrderComponent implements OnInit {
 
+  //region Variables
   public formGroup: FormGroup = new FormGroup({
-    'address': new FormControl(null),
-    'number': new FormControl(null),
+    'address': new FormControl(null, [Validators.minLength(5), Validators.maxLength(100), Validators.required]),
+    'number': new FormControl(null, [Validators.minLength(1), Validators.maxLength(5), Validators.required]),
     'complement': new FormControl(null),
-    'payment': new FormControl(null)
+    'payment': new FormControl(null, [Validators.required])
   })
   public idOrder: number
+  //endregion Variables
 
+  //region Constructor
   constructor(private purchaseOrderService: PurchaseOrderService) { }
+  //endregion Constructor
 
-  ngOnInit() { }
-
-  /*
+  //region Methods
   public makePurchase(): void {
-    let orderModel: OrderModel = new OrderModel(this.form.value.address, this.form.value.number,
-      this.form.value.complement, this.form.value.payment)
-    this.purchaseOrderService.makePurchase(orderModel)
+    console.log(this.formGroup)
+    let order: OrderModel = new OrderModel(
+      this.formGroup.value.address,
+      this.formGroup.value.number, this.formGroup.value.complement,
+      this.formGroup.value.payment
+    )
+    this.purchaseOrderService.makePurchase(order)
       .subscribe((idOrder: number) => {
         this.idOrder = idOrder
-        console.log('ID pedido: ' + idOrder)
+        console.log(idOrder)
       })
   }
-  */
+  //endregion Methods
+
+  //region InterfacesMethods
+  ngOnInit() { }
+  //endregion InterfacesMethods
 }
