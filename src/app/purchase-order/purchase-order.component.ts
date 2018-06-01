@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PurchaseOrderService } from '../services/purchase-order.service';
 import { OrderModel } from '../shared/order.model'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 //endregion Imports
 
 //region Components
@@ -10,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   selector: 'pu-purchase-order',
   templateUrl: './purchase-order.component.html',
   styleUrls: ['./purchase-order.component.css'],
-  providers: [PurchaseOrderService]
+  providers: [PurchaseOrderService, ShoppingCartService]
 })
 //endregion Components
 
@@ -27,7 +28,10 @@ export class PurchaseOrderComponent implements OnInit {
   //endregion Variables
 
   //region Constructor
-  constructor(private purchaseOrderService: PurchaseOrderService) { }
+  constructor(
+    private purchaseOrderService: PurchaseOrderService,
+    private shoppingCartService: ShoppingCartService
+  ) { }
   //endregion Constructor
 
   //region Methods
@@ -47,6 +51,8 @@ export class PurchaseOrderComponent implements OnInit {
   //endregion Methods
 
   //region InterfacesMethods
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('PurchaseOrder - ShoppingCartService: ' + this.shoppingCartService)
+  }
   //endregion InterfacesMethods
 }
