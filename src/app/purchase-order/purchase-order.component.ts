@@ -38,15 +38,28 @@ export class PurchaseOrderComponent implements OnInit {
 
   //region Methods
   public makePurchase(): void {
-    let order: OrderModel = new OrderModel(
-      this.formGroup.value.address,
-      this.formGroup.value.number, this.formGroup.value.complement,
-      this.formGroup.value.payment
-    )
-    this.purchaseOrderService.makePurchase(order)
-      .subscribe((idOrder: number) => {
-        this.idOrder = idOrder
-      })
+    if (this.formGroup.status === 'INVALID') {
+      this.formGroup.get('address').markAsTouched()
+      this.formGroup.get('number').markAsTouched()
+      this.formGroup.get('complement').markAsTouched()
+      this.formGroup.get('payment').markAsTouched()
+    } else {
+      if (this.shoppingCartService.cartItemModel.length === 0)
+        alert('Seu carrinho de compras está vazio. Aproveite nossas ofertas antes de finalizar a compra.')
+      else {
+        let order: OrderModel = new OrderModel(
+          this.formGroup.value.address,
+          this.formGroup.value.number, this.formGroup.value.complement,
+          this.formGroup.value.payment,
+          this.shoppingCartService.cartItemModel
+        )
+        console.log(order)
+        this.purchaseOrderService.makePurchase(order)
+          .subscribe((idOrder: number) => {
+            this.idOrder = idOrder
+          })
+      }
+    }
   }
   //endregion Methods
 

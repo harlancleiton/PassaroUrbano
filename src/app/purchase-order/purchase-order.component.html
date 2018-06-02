@@ -91,11 +91,9 @@
   <div class="purchase-order" *ngIf="idOrder !== undefined">
     <pu-purchase-order-success [idOrder]="idOrder"></pu-purchase-order-success>
   </div>
-  <div>
-    <ng-template #emptyCart>
-      <div class="form-row d-flex justify-content-center" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-        <h4>Seu carrinho está vazio!</h4>
-      </div>
-    </ng-template>
-  </div>
+  <ng-template #emptyCart>
+    <div class="form-row d-flex justify-content-center" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <h4>Seu carrinho está vazio!</h4>
+    </div>
+  </ng-template>
 </div>

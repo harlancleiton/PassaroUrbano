@@ -187,207 +187,62 @@
   ],
   "orders": [
     {
-      "address": "Ladeira ABC",
+      "address": "Ladeira do Cemitério",
       "number": "77",
-      "complement": "Prox",
+      "complement": "77F Av 83 Casa 2",
       "payment": "debit",
+      "cartItemModel": [
+        {
+          "id": 1,
+          "title": "Super Burger",
+          "description": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "price": 29.9,
+          "amount": 2,
+          "image": {
+            "url": "/assets/ofertas/1/img1.jpg"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Estância das águas",
+          "description": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "price": 31.9,
+          "amount": 1,
+          "image": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          }
+        }
+      ],
       "id": 1
     },
     {
-      "address": "Ladeira",
-      "number": "14",
-      "complement": "",
-      "payment": "money",
-      "id": 2
-    },
-    {
-      "address": "Ladeira",
-      "number": "11",
-      "complement": "Proximo",
-      "payment": "debit",
-      "id": 3
-    },
-    {
-      "address": "Rua das Rosas",
-      "number": "47",
-      "complement": "E",
-      "payment": "debit",
-      "id": 4
-    },
-    {
-      "address": "Rua dos Bobos",
+      "address": "ShoppingCartService",
       "number": "0",
-      "complement": "",
-      "payment": "debit",
-      "id": 5
-    },
-    {
-      "address": "Rua Leandro Gomes",
-      "number": "38",
-      "complement": "E",
+      "complement": null,
       "payment": "money",
-      "id": 6
-    },
-    {
-      "address": "Rua Leandro Gomes",
-      "number": "38",
-      "complement": "E",
-      "payment": "debit",
-      "id": 7
-    },
-    {
-      "address": "Rua Leandro Gomes",
-      "number": "38",
-      "complement": "E",
-      "payment": "debit",
-      "id": 8
-    },
-    {
-      "address": "Rua Leandro Gomes",
-      "number": "38",
-      "complement": "E",
-      "payment": "money",
-      "id": 9
-    },
-    {
-      "address": "Rua Leandro Gomes",
-      "number": "38",
-      "complement": "E",
-      "payment": "money",
-      "id": 10
-    },
-    {
-      "address": "idOrderModel",
-      "number": "233",
-      "complement": "?",
-      "payment": "money",
-      "id": 11
-    },
-    {
-      "address": "idOrderModel",
-      "number": "123",
-      "complement": "XYZ",
-      "payment": "money",
-      "id": 12
-    },
-    {
-      "address": "dsdadasdas",
-      "number": "asdasdas",
-      "complement": "sdsd",
-      "payment": "money",
-      "id": 13
-    },
-    {
-      "address": "dsdadasdas",
-      "number": "asdasdas",
-      "complement": "sdsd",
-      "payment": "money",
-      "id": 14
-    },
-    {
-      "address": "sadas",
-      "number": "211",
-      "complement": "dsdsad",
-      "payment": "money",
-      "id": 15
-    },
-    {
-      "address": "dfdads",
-      "number": "233",
-      "complement": "dfs",
-      "payment": "debit",
-      "id": 16
-    },
-    {
-      "address": "dfdads",
-      "number": "233",
-      "complement": "dfs",
-      "payment": "debit",
-      "id": 17
-    },
-    {
-      "address": "dfdads",
-      "number": "233",
-      "complement": "dfs",
-      "payment": "debit",
-      "id": 18
-    },
-    {
-      "address": "dfdads",
-      "number": "233",
-      "complement": "dfs",
-      "payment": "debit",
-      "id": 19
-    },
-    {
-      "address": "fewwe",
-      "number": "32",
-      "complement": "efw",
-      "payment": "money",
-      "id": 20
-    },
-    {
-      "address": "dsfadfa",
-      "number": "32",
-      "complement": "fdssda",
-      "payment": "money",
-      "id": 21
-    },
-    {
-      "address": "sdafdfa",
-      "number": "23",
-      "complement": "ddsfds",
-      "payment": "money",
-      "id": 22
-    },
-    {
-      "address": "daasDSADA",
-      "number": "11",
-      "complement": "",
-      "payment": "money",
-      "id": 23
-    },
-    {
-      "address": "wewesdsa",
-      "number": "21",
-      "complement": "",
-      "payment": "money",
-      "id": 24
-    },
-    {
-      "address": "dfadd",
-      "number": "11",
-      "complement": "ddfds",
-      "payment": "debit",
-      "id": 25
-    },
-    {
-      "address": "dadasd",
-      "number": "2332",
-      "complement": "DSFSDFS",
-      "payment": "money",
-      "id": 26
-    },
-    {
-      "address": "dsadasd",
-      "number": "211",
-      "complement": "ddsda",
-      "payment": "money",
-      "id": 27
-    },
-    {
-      "address": "sadsad",
-      "number": "1",
-      "complement": "dsad",
-      "payment": "debit",
-      "id": 28
-    },
-    {
-      "address": "sadsadsada",
-      "number": "1",
-      "complement": "sa",
-      "payment": "money",
-      "id": 29
+      "cartItemModel": [
+        {
+          "id": 3,
+          "title": "Pizzas Grandes",
+          "description": "Pizza Grande, Mussarela, Marguerita ou outras!",
+          "price": 21.9,
+          "amount": 1,
+          "image": {
+            "url": "/assets/ofertas/3/img1.jpg"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Estância das águas",
+          "description": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "price": 31.9,
+          "amount": 1,
+          "image": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          }
+        }
+      ],
+      "id": 2
     }
   ]
 }
