@@ -11,8 +11,31 @@ export class ShoppingCartService {
 
     //region Methods
     public addToCart(offerModel: OfferModel): void {
-        this.cartItemModel.push(this.cartItemFactory(offerModel))
-        console.log('ShoppingCartService: ', this.cartItemModel)
+        let cartItemModel: CartItemModel = this.cartItemFactory(offerModel)
+        this.addItemToCart(cartItemModel)
+    }
+
+    private addItemToCart(cartItemModel: CartItemModel) {
+        let cartItem = this.cartItemModel.find((item: CartItemModel) => item.id === cartItemModel.id)
+        if (cartItem)
+            cartItem.amount++
+        else this.cartItemModel.push(cartItemModel)
+    }
+
+    private removeItemToCart(cartItemModel: CartItemModel) {
+        let cartItem = this.cartItemModel.find((item: CartItemModel) => item.id === cartItemModel.id)
+        if (cartItem) {
+            cartItem.amount--
+            if (cartItem.amount === 0) {
+                this.cartItemModel.splice(this.cartItemModel.indexOf(cartItem), 1)
+            }
+        }
+    }
+
+    private calculateCartValue(): number {
+        let total: number = 0
+        this.cartItemModel.map((cartItem: CartItemModel) => total += cartItem.amount * cartItem.price)
+        return total
     }
 
     private cartItemFactory(offerModel: OfferModel): CartItemModel {
@@ -25,6 +48,16 @@ export class ShoppingCartService {
             offerModel.images[0]
         )
         return cartItemModel;
+    }
+
+    public decreaseQuantity(cartItem: CartItemModel): void {
+        this.removeItemToCart(cartItem)
+        console.log('decreaseQuantity', cartItem)
+    }
+
+    public increaseQuantity(cartItem: CartItemModel): void {
+        this.addItemToCart(cartItem)
+        console.log('increaseQuantity', cartItem)
     }
     //endregion Methods
 }

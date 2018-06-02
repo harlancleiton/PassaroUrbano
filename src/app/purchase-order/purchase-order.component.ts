@@ -4,6 +4,7 @@ import { PurchaseOrderService } from '../services/purchase-order.service';
 import { OrderModel } from '../shared/order.model'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { CartItemModel } from '../shared/cart-item.model';
 //endregion Imports
 
 //region Components
@@ -25,6 +26,7 @@ export class PurchaseOrderComponent implements OnInit {
     'payment': new FormControl(null, [Validators.required])
   })
   public idOrder: number
+  public cartItemModel: Array<CartItemModel>
   //endregion Variables
 
   //region Constructor
@@ -50,6 +52,8 @@ export class PurchaseOrderComponent implements OnInit {
 
   //region InterfacesMethods
   ngOnInit() {
+    this.cartItemModel = this.shoppingCartService.cartItemModel
+    //console.log(this.cartItemModel.length)
   }
   //endregion InterfacesMethods
 }

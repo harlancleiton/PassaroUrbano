@@ -1,6 +1,6 @@
 //region Imports
 import { Component, OnInit } from '@angular/core';
-import { OffersServices } from '../services/offers.services';
+import { OffersServices } from '../services/offers.service';
 import { OfferModel } from '../shared/offer.model'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferModel } from '../shared/offer.model'
-import { OffersServices } from '../services/offers.services'
+import { OffersServices } from '../services/offers.service'
 
 @Component({
   selector: 'pu-restaurants',

@@ -1,7 +1,7 @@
 //region Imports
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OffersServices } from '../services/offers.services'
+import { OffersServices } from '../services/offers.service'
 import { OfferModel } from '../shared/offer.model'
 import { Observable } from 'rxjs/Observable'
 import { Observer, Subscription } from 'rxjs/Rx';
@@ -36,7 +36,6 @@ export class OfferComponent implements OnInit, OnDestroy {
   //region Methods
   public addToCart(): void {
     this.shoppingCartService.addToCart(this.offerModel)
-    console.log('OfferComponent: ', this.shoppingCartService.cartItemModel)
   }
   //endregion Methods
 
