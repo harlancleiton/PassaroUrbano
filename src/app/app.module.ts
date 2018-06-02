@@ -20,6 +20,7 @@ registerLocaleData(localePt);
 import { ReducedDescription } from './util/reduced-description.pipe';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
 import { PurchaseOrderSuccessComponent } from './purchase-order-success/purchase-order-success.component'
+import { ShoppingCartService } from './services/shopping-cart.service'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { PurchaseOrderSuccessComponent } from './purchase-order-success/purchase
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt-Br' }],
+  providers: [ShoppingCartService, { provide: LOCALE_ID, useValue: 'pt-Br' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

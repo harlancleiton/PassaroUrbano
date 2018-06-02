@@ -1,11 +1,11 @@
 //region Imports
 import { Http, Response } from '@angular/http'
 import { Injectable } from '@angular/core'
-import { OfferModel } from './shared/offer.model'
+import { OfferModel } from '../shared/offer.model'
 import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/retry'
-import { URL_API } from './app.api'
+import { URL_API } from '../app.api'
 import { Observable } from 'rxjs/Observable'
 //endregion Imports
 

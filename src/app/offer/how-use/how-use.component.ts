@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OffersServices } from '../../offers.services'
+import { OffersServices } from '../../services/offers.services'
 
 @Component({
   selector: 'pu-how-use',

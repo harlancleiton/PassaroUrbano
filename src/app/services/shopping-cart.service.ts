@@ -12,6 +12,7 @@ export class ShoppingCartService {
     //region Methods
     public addToCart(offerModel: OfferModel): void {
         this.cartItemModel.push(this.cartItemFactory(offerModel))
+        console.log('ShoppingCartService: ', this.cartItemModel)
     }
 
     private cartItemFactory(offerModel: OfferModel): CartItemModel {

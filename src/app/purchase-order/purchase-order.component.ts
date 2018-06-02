@@ -11,7 +11,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
   selector: 'pu-purchase-order',
   templateUrl: './purchase-order.component.html',
   styleUrls: ['./purchase-order.component.css'],
-  providers: [PurchaseOrderService, ShoppingCartService]
+  providers: [PurchaseOrderService]
 })
 //endregion Components
 
@@ -36,7 +36,6 @@ export class PurchaseOrderComponent implements OnInit {
 
   //region Methods
   public makePurchase(): void {
-    console.log(this.formGroup)
     let order: OrderModel = new OrderModel(
       this.formGroup.value.address,
       this.formGroup.value.number, this.formGroup.value.complement,
@@ -45,14 +44,12 @@ export class PurchaseOrderComponent implements OnInit {
     this.purchaseOrderService.makePurchase(order)
       .subscribe((idOrder: number) => {
         this.idOrder = idOrder
-        console.log(idOrder)
       })
   }
   //endregion Methods
 
   //region InterfacesMethods
   ngOnInit() {
-    console.log('PurchaseOrder - ShoppingCartService: ' + this.shoppingCartService)
   }
   //endregion InterfacesMethods
 }
