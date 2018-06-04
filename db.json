@@ -243,6 +243,54 @@
         }
       ],
       "id": 2
+    },
+    {
+      "address": "ShoppingCartService",
+      "number": "00",
+      "complement": "F",
+      "payment": "debit",
+      "cartItemModel": [
+        {
+          "id": 4,
+          "title": "Estância das águas",
+          "description": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "price": 31.9,
+          "amount": 1,
+          "image": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Pizzas Grandes",
+          "description": "Pizza Grande, Mussarela, Marguerita ou outras!",
+          "price": 21.9,
+          "amount": 2,
+          "image": {
+            "url": "/assets/ofertas/3/img1.jpg"
+          }
+        }
+      ],
+      "id": 3
+    },
+    {
+      "address": "hjjhgdjhgjf",
+      "number": "5654",
+      "complement": "aa",
+      "payment": "money",
+      "cartItemModel": [
+        {
+          "id": 4,
+          "title": "Estância das águas",
+          "description": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "price": 31.9,
+          "amount": 2,
+          "image": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          }
+        }
+      ],
+      "id": 4
     }
   ]
 }

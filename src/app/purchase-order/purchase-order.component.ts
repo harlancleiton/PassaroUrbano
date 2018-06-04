@@ -57,6 +57,7 @@ export class PurchaseOrderComponent implements OnInit {
         this.purchaseOrderService.makePurchase(order)
           .subscribe((idOrder: number) => {
             this.idOrder = idOrder
+            this.shoppingCartService.arrayToClear()
           })
       }
     }

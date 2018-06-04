@@ -50,6 +50,10 @@ export class ShoppingCartService {
         return cartItemModel;
     }
 
+    public arrayToClear(): void {
+        this.cartItemModel = new Array()
+    }
+
     public decreaseQuantity(cartItem: CartItemModel): void {
         this.removeItemToCart(cartItem)
         console.log('decreaseQuantity', cartItem)
